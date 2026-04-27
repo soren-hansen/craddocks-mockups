@@ -19,6 +19,7 @@
   --col-wip:#b45309;--col-wip-bg:#fffbeb;--col-wip-border:#fde68a;
   --col-review:#1B4F8A;--col-review-bg:#eff6ff;--col-review-border:#bfdbfe;
   --col-live:#15803d;--col-live-bg:#f0fdf4;--col-live-border:#bbf7d0;
+  --col-approved:#0f766e;--col-approved-bg:#f0fdfa;--col-approved-border:#99f6e4;
 }
 html{font-size:16px;scroll-behavior:smooth}
 body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.6;min-height:100vh}
@@ -43,7 +44,7 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:
 
 /* ── KANBAN BOARD ─────────────────────────────────────── */
 .board-wrap{max-width:1300px;margin:0 auto;padding:32px 20px 48px}
-.board{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
+.board{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;align-items:start}
 
 /* ── COLUMN ───────────────────────────────────────────── */
 .col{border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
