@@ -12,91 +12,103 @@
 :root{
   --navy:#0B2038;--navy-mid:#1B4F8A;--blue:#2b7bc0;--blue-lt:#e8f2fb;
   --green:#8ac44d;--green-dk:#72a63c;
-  --text:#1A1A2E;--muted:#5a7a96;--border:#dde4ea;--bg:#f4f7fb;--white:#fff;
+  --text:#1A1A2E;--muted:#5a7a96;--border:#dde4ea;--bg:#f0f4f8;--white:#fff;
   --font:'Archivo',system-ui,sans-serif;
-  --shadow:0 2px 12px rgba(0,0,0,.08);--shadow-md:0 4px 24px rgba(0,0,0,.12);
+  --shadow:0 2px 10px rgba(0,0,0,.07);--shadow-md:0 4px 20px rgba(0,0,0,.11);
+  --col-mockup:#6d28d9;--col-mockup-bg:#f5f3ff;--col-mockup-border:#ddd6fe;
+  --col-wip:#b45309;--col-wip-bg:#fffbeb;--col-wip-border:#fde68a;
+  --col-review:#1B4F8A;--col-review-bg:#eff6ff;--col-review-border:#bfdbfe;
+  --col-live:#15803d;--col-live-bg:#f0fdf4;--col-live-border:#bbf7d0;
 }
 html{font-size:16px;scroll-behavior:smooth}
 body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.6;min-height:100vh}
 
-/* HEADER */
-.lp-header{background:var(--navy);padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.lp-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.lp-logo img{height:32px;width:auto;display:block}
-.lp-header-meta{font-size:12px;color:rgba(255,255,255,.5);font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+/* ── HEADER ───────────────────────────────────────────── */
+.lp-header{background:var(--navy);padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.lp-logo img{height:30px;width:auto;display:block}
+.lp-header-right{display:flex;align-items:center;gap:16px}
+.lp-client-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.3px}
+.lp-header-meta{font-size:11px;color:rgba(255,255,255,.4);font-weight:600;letter-spacing:.5px;text-transform:uppercase}
 
-/* HERO BANNER */
-.portal-hero{background:linear-gradient(120deg,var(--navy) 0%,var(--navy-mid) 60%,var(--blue) 100%);padding:52px 32px 44px;text-align:center;position:relative;overflow:hidden}
-.portal-hero::before{content:'';position:absolute;top:-80px;right:-60px;width:400px;height:400px;background:rgba(255,255,255,.03);border-radius:50%;pointer-events:none}
-.portal-hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--green);margin-bottom:12px}
-.portal-hero h1{font-size:clamp(22px,3vw,36px);font-weight:900;color:#fff;letter-spacing:-.5px;line-height:1.15;margin-bottom:10px}
-.portal-hero-sub{font-size:15px;color:rgba(255,255,255,.7);max-width:560px;margin:0 auto 24px;line-height:1.6}
-.portal-meta{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:6px 16px;font-size:12px;color:rgba(255,255,255,.65);font-weight:600}
-.portal-meta span{width:8px;height:8px;background:#8ac44d;border-radius:50%;display:inline-block;animation:pulse 2s infinite}
+/* ── HERO ─────────────────────────────────────────────── */
+.portal-hero{background:linear-gradient(120deg,var(--navy) 0%,var(--navy-mid) 60%,var(--blue) 100%);padding:44px 32px 40px;text-align:center;position:relative;overflow:hidden}
+.portal-hero::before{content:'';position:absolute;top:-100px;right:-80px;width:500px;height:500px;background:rgba(255,255,255,.02);border-radius:50%;pointer-events:none}
+.portal-hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--green);margin-bottom:10px}
+.portal-hero h1{font-size:clamp(20px,3vw,32px);font-weight:900;color:#fff;letter-spacing:-.5px;line-height:1.2;margin-bottom:8px}
+.portal-hero-sub{font-size:14.5px;color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 20px;line-height:1.6}
+.portal-meta-row{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.portal-meta{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:5px 14px;font-size:12px;color:rgba(255,255,255,.65);font-weight:600}
+.portal-meta .dot{width:7px;height:7px;background:var(--green);border-radius:50%;display:inline-block;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-/* LEGEND */
-.legend{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;padding:20px 32px;background:#fff;border-bottom:1px solid var(--border)}
-.legend-item{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--muted)}
-.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:20px;white-space:nowrap}
-.badge-mockup{background:#f3f0ff;color:#6d28d9}
-.badge-review{background:#fff7e0;color:#b45309}
-.badge-live{background:#e6f9ee;color:#15803d}
-.badge-wip{background:#f0f4f8;color:#64748b}
+/* ── KANBAN BOARD ─────────────────────────────────────── */
+.board-wrap{max-width:1300px;margin:0 auto;padding:32px 20px 48px}
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
 
-/* SECTION */
-.section{max-width:900px;margin:0 auto;padding:36px 24px}
-.section-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--green);margin-bottom:6px}
-.section-title{font-size:clamp(17px,2vw,22px);font-weight:800;color:var(--navy);margin-bottom:4px}
-.section-sub{font-size:14px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+/* ── COLUMN ───────────────────────────────────────────── */
+.col{border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.col-head{padding:18px 20px 16px;display:flex;flex-direction:column;gap:10px}
+.col-head-mockup{background:var(--col-mockup-bg);border:1px solid var(--col-mockup-border);border-bottom:none;border-radius:16px 16px 0 0}
+.col-head-wip{background:var(--col-wip-bg);border:1px solid var(--col-wip-border);border-bottom:none;border-radius:16px 16px 0 0}
+.col-head-review{background:var(--col-review-bg);border:1px solid var(--col-review-border);border-bottom:none;border-radius:16px 16px 0 0}
+.col-head-live{background:var(--col-live-bg);border:1px solid var(--col-live-border);border-bottom:none;border-radius:16px 16px 0 0}
 
-/* PAGE CARDS */
-.pages-grid{display:grid;gap:16px}
-.page-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px 28px;display:flex;align-items:flex-start;gap:20px;box-shadow:var(--shadow);transition:box-shadow .2s ease,transform .2s ease}
+.col-title-row{display:flex;align-items:center;justify-content:space-between}
+.col-title{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.8px}
+.col-title-mockup{color:var(--col-mockup)}
+.col-title-wip{color:var(--col-wip)}
+.col-title-review{color:var(--col-review)}
+.col-title-live{color:var(--col-live)}
+
+.col-count{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:900;flex-shrink:0}
+.col-count-mockup{background:var(--col-mockup);color:#fff}
+.col-count-wip{background:var(--col-wip);color:#fff}
+.col-count-review{background:var(--col-review);color:#fff}
+.col-count-live{background:var(--col-live);color:#fff}
+
+.col-desc{font-size:12px;line-height:1.5}
+.col-desc-mockup{color:#7c3aed}
+.col-desc-wip{color:#92400e}
+.col-desc-review{color:#1e40af}
+.col-desc-live{color:#166534}
+
+/* ── CARDS BODY ───────────────────────────────────────── */
+.col-body{padding:0 12px 12px;display:flex;flex-direction:column;gap:10px;border-radius:0 0 16px 16px;border-left-width:1px;border-right-width:1px;border-bottom-width:1px;border-style:solid}
+.col-body-mockup{background:var(--col-mockup-bg);border-color:var(--col-mockup-border)}
+.col-body-wip{background:var(--col-wip-bg);border-color:var(--col-wip-border)}
+.col-body-review{background:var(--col-review-bg);border-color:var(--col-review-border)}
+.col-body-live{background:var(--col-live-bg);border-color:var(--col-live-border)}
+
+/* ── PAGE CARD ────────────────────────────────────────── */
+.page-card{background:#fff;border-radius:10px;padding:14px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;transition:box-shadow .18s,transform .18s;border:1px solid rgba(0,0,0,.05)}
 .page-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.page-card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--blue-lt)}
-.page-card-body{flex:1;min-width:0}
-.page-card-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
-.page-card-title{font-size:16px;font-weight:800;color:var(--navy)}
-.page-card-url{font-size:12px;color:var(--muted);margin-bottom:8px;font-family:monospace;word-break:break-all}
-.page-card-desc{font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:14px}
-.page-card-actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn-review{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;padding:8px 16px;border-radius:7px;font-size:13px;font-weight:700;text-decoration:none;transition:background .15s}
+.pc-top{display:flex;align-items:flex-start;gap:10px}
+.pc-icon{font-size:18px;line-height:1;flex-shrink:0;margin-top:1px}
+.pc-name{font-size:13.5px;font-weight:800;color:var(--navy);line-height:1.3}
+.pc-type{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:1px}
+.pc-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.pc-action{margin-top:4px}
+.btn-review{display:inline-flex;align-items:center;gap:5px;background:var(--navy);color:#fff;padding:7px 14px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;transition:background .15s;width:100%;justify-content:center}
 .btn-review:hover{background:var(--blue)}
-.btn-mockup{display:inline-flex;align-items:center;gap:6px;background:#f3f0ff;color:#6d28d9;padding:8px 16px;border-radius:7px;font-size:13px;font-weight:700;text-decoration:none;border:1px solid #ddd6fe;transition:background .15s}
-.btn-mockup:hover{background:#ede9fe}
-.btn-live{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#fff;padding:8px 16px;border-radius:7px;font-size:13px;font-weight:700;text-decoration:none;transition:background .15s}
+.btn-live{display:inline-flex;align-items:center;gap:5px;background:var(--green);color:#fff;padding:7px 14px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;transition:background .15s;width:100%;justify-content:center}
 .btn-live:hover{background:var(--green-dk)}
-.btn-disabled{display:inline-flex;align-items:center;gap:6px;background:#f0f4f8;color:#94a3b8;padding:8px 16px;border-radius:7px;font-size:13px;font-weight:600;text-decoration:none;cursor:default;border:1px solid #e2e8f0}
 
-/* PROGRESS BAR */
-.progress-wrap{margin-bottom:32px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 24px;box-shadow:var(--shadow)}
-.progress-label{display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px}
-.progress-bar{height:8px;background:#e2e8f0;border-radius:99px;overflow:hidden}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--navy-mid),var(--green));border-radius:99px;transition:width .5s ease}
-.progress-stats{display:flex;gap:20px;flex-wrap:wrap;margin-top:14px}
-.ps-item{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:6px}
+/* ── EMPTY STATE ──────────────────────────────────────── */
+.col-empty{text-align:center;padding:24px 12px;font-size:12px;color:var(--muted);font-style:italic}
 
-/* NOTES CARD */
-.notes-card{background:#fffbea;border:1px solid #f0e0a0;border-radius:14px;padding:20px 24px;margin-bottom:32px}
-.notes-card h3{font-size:14px;font-weight:800;color:#92400e;margin-bottom:8px}
-.notes-card ul{list-style:none;padding:0}
-.notes-card li{font-size:13px;color:#78350f;padding:4px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
-.notes-card li::before{content:'⏳';flex-shrink:0}
-
-/* DIVIDER */
-.divider{height:1px;background:var(--border);margin:8px 0 28px}
-
-/* FOOTER */
-.portal-footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:24px 32px;font-size:12px;margin-top:40px}
-.portal-footer a{color:rgba(255,255,255,.7);text-decoration:none}
+/* ── FOOTER ───────────────────────────────────────────── */
+.portal-footer{background:var(--navy);color:rgba(255,255,255,.45);text-align:center;padding:22px 32px;font-size:12px}
+.portal-footer a{color:rgba(255,255,255,.65);text-decoration:none}
 .portal-footer a:hover{color:#fff}
 
-/* RESPONSIVE */
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media(max-width:1024px){
+  .board{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:600px){
-  .page-card{flex-direction:column;gap:14px}
-  .page-card-icon{width:36px;height:36px;font-size:16px}
-  .legend{gap:14px}
+  .board{grid-template-columns:1fr}
+  .lp-header-meta{display:none}
+  .board-wrap{padding:20px 14px 40px}
 }
 </style>
 </head>
@@ -104,369 +116,299 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:
 
 <!-- HEADER -->
 <header class="lp-header">
-  <a class="lp-logo" href="https://leadpillar.com" target="_blank" rel="noopener">
-    <img src="leadpillar-logo-white.png" alt="LeadPillar" width="160" height="32">
+  <a href="https://leadpillar.com" target="_blank" rel="noopener">
+    <img src="leadpillar-logo-white.png" alt="LeadPillar" height="30">
   </a>
-  <span class="lp-header-meta">Client Review Portal</span>
+  <div class="lp-header-right">
+    <span class="lp-client-badge">Craddock's Cleaning Services</span>
+    <span class="lp-header-meta">Review Portal</span>
+  </div>
 </header>
 
 <!-- HERO -->
 <div class="portal-hero">
   <p class="portal-hero-eyebrow">LeadPillar × Craddock's Cleaning Services</p>
   <h1>Website Build — Review Portal</h1>
-  <p class="portal-hero-sub">Track the status of every page. Click "For Review" to preview on staging. Feedback goes to Søren at LeadPillar.</p>
-  <div class="portal-meta">
-    <span></span>
-    Project in progress — staging only, not live
+  <p class="portal-hero-sub">Track every page from mockup to live. Click "View on Staging" to review and send feedback to Søren at LeadPillar.</p>
+  <div class="portal-meta-row">
+    <div class="portal-meta"><span class="dot"></span>Staging — not live yet</div>
+    <div class="portal-meta">📄 17 total pages</div>
+    <div class="portal-meta">✅ 6 ready for review</div>
   </div>
 </div>
 
-<!-- LEGEND -->
-<div class="legend">
-  <div class="legend-item"><span class="badge badge-mockup">Mockup</span> Design draft, not yet in WordPress</div>
-  <div class="legend-item"><span class="badge badge-review">For Review</span> Built in WordPress staging — ready for client feedback</div>
-  <div class="legend-item"><span class="badge badge-live">Live</span> Published to craddockscleaningservices.com</div>
-  <div class="legend-item"><span class="badge badge-wip">In Progress</span> Currently being built</div>
-</div>
+<!-- BOARD -->
+<div class="board-wrap">
+<div class="board">
 
-<!-- MAIN -->
-<div class="section">
-
-  <!-- PROGRESS -->
-  <div class="progress-wrap">
-    <div class="progress-label">
-      <span>Overall Progress</span>
-      <span>5 of 14 pages complete</span>
+  <!-- ── COL 1: MOCKUP ─────────────────────────────────── -->
+  <div class="col">
+    <div class="col-head col-head-mockup">
+      <div class="col-title-row">
+        <span class="col-title col-title-mockup">Mockup</span>
+        <span class="col-count col-count-mockup">6</span>
+      </div>
+      <p class="col-desc col-desc-mockup">Design drafted — not yet built in WordPress.</p>
     </div>
-    <div class="progress-bar"><div class="progress-fill" style="width:36%"></div></div>
-    <div class="progress-stats">
-      <div class="ps-item">🟢 <strong>5</strong>&nbsp;For Review / Live</div>
-      <div class="ps-item">🟡 <strong>3</strong>&nbsp;In Progress</div>
-      <div class="ps-item">⚪ <strong>6</strong>&nbsp;Queued</div>
-    </div>
-  </div>
+    <div class="col-body col-body-mockup">
 
-  <!-- PENDING FROM JEREMY -->
-  <div class="notes-card">
-    <h3>⏳ Pending from Jeremy</h3>
-    <ul>
-      <li>Pressure washing / surface coating business name — needed for About Us page</li>
-      <li>Real testimonials / Google reviews for placeholder cards</li>
-      <li>Confirmation of MBE certification status (CRAD-140)</li>
-    </ul>
-  </div>
-
-  <!-- CORE PAGES -->
-  <p class="section-label">Core Pages</p>
-  <h2 class="section-title">Main Website Pages</h2>
-  <p class="section-sub">Primary pages of craddockscleaningservices.com</p>
-
-  <div class="pages-grid">
-
-    <!-- Homepage -->
-    <div class="page-card">
-      <div class="page-card-icon">🏠</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Homepage</span>
-          <span class="badge badge-review">For Review</span>
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">✨</span>
+          <div>
+            <div class="pc-type">Service Page</div>
+            <div class="pc-name">Floor Care Services</div>
+          </div>
         </div>
-        <div class="page-card-url">craddockscleaningservices.com/</div>
-        <div class="page-card-desc">Main landing page. Hero, services overview, 5-Step protocol, facility types, before/after projects, testimonials, FAQ.</div>
-        <div class="page-card-actions">
+        <p class="pc-desc">VCT strip &amp; wax, carpet extraction, hard floor maintenance.</p>
+      </div>
+
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">🌅</span>
+          <div>
+            <div class="pc-type">Service Page</div>
+            <div class="pc-name">Day Porter Services</div>
+          </div>
+        </div>
+        <p class="pc-desc">On-site daytime cleaning attendant for lobbies, restrooms, common areas.</p>
+      </div>
+
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">🏢</span>
+          <div>
+            <div class="pc-type">Industry Page</div>
+            <div class="pc-name">Office Cleaning</div>
+          </div>
+        </div>
+        <p class="pc-desc">Corporate office and business park cleaning, assigned crews, digital log.</p>
+      </div>
+
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">🏥</span>
+          <div>
+            <div class="pc-type">Industry Page</div>
+            <div class="pc-name">Medical Facility Cleaning</div>
+          </div>
+        </div>
+        <p class="pc-desc">Outpatient clinics, hospitals, ASCs. Joint Commission EOC documentation.</p>
+      </div>
+
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">📦</span>
+          <div>
+            <div class="pc-type">Industry Page</div>
+            <div class="pc-name">Distribution &amp; Warehouse</div>
+          </div>
+        </div>
+        <p class="pc-desc">OSHA-compliant warehouse cleaning. Concrete degreasing, dock areas.</p>
+      </div>
+
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">🎓</span>
+          <div>
+            <div class="pc-type">Industry Page</div>
+            <div class="pc-name">School &amp; Campus Cleaning</div>
+          </div>
+        </div>
+        <p class="pc-desc">K-12, charter schools, universities — deep clean around academic calendar.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── COL 2: IN PROGRESS ────────────────────────────── -->
+  <div class="col">
+    <div class="col-head col-head-wip">
+      <div class="col-title-row">
+        <span class="col-title col-title-wip">In Progress</span>
+        <span class="col-count col-count-wip">5</span>
+      </div>
+      <p class="col-desc col-desc-wip">Currently being built in WordPress staging.</p>
+    </div>
+    <div class="col-body col-body-wip">
+
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">📞</span>
+          <div>
+            <div class="pc-type">Core Page</div>
+            <div class="pc-name">Contact / Get a Quote</div>
+          </div>
+        </div>
+        <p class="pc-desc">Quote request form, phone, locations map, response time guarantee.</p>
+      </div>
+
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">📍</span>
+          <div>
+            <div class="pc-type">Location Page</div>
+            <div class="pc-name">Dallas TX</div>
+          </div>
+        </div>
+        <p class="pc-desc">Service area page for Dallas TX.</p>
+      </div>
+
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">📍</span>
+          <div>
+            <div class="pc-type">Location Page</div>
+            <div class="pc-name">Fort Worth TX</div>
+          </div>
+        </div>
+        <p class="pc-desc">Service area page for Fort Worth TX.</p>
+      </div>
+
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">🏥</span>
+          <div>
+            <div class="pc-type">Service Page</div>
+            <div class="pc-name">Medical Equipment Cleaning</div>
+          </div>
+        </div>
+        <p class="pc-desc">ATP-tested surface cleaning of patient care equipment. Joint Commission EOC compliant.</p>
+      </div>
+
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">🏗️</span>
+          <div>
+            <div class="pc-type">Service Page</div>
+            <div class="pc-name">Post-Construction Cleaning</div>
+          </div>
+        </div>
+        <p class="pc-desc">Final-phase cleaning for construction projects. CO-ready delivery.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── COL 3: FOR REVIEW ─────────────────────────────── -->
+  <div class="col">
+    <div class="col-head col-head-review">
+      <div class="col-title-row">
+        <span class="col-title col-title-review">For Review</span>
+        <span class="col-count col-count-review">6</span>
+      </div>
+      <p class="col-desc col-desc-review">Built in WordPress staging — ready for your feedback.</p>
+    </div>
+    <div class="col-body col-body-review">
+
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">🏠</span>
+          <div>
+            <div class="pc-type">Core Page</div>
+            <div class="pc-name">Homepage</div>
+          </div>
+        </div>
+        <p class="pc-desc">Hero, services, 5-Step protocol, facility types, projects, testimonials, FAQ.</p>
+        <div class="pc-action">
           <a class="btn-review" href="https://stg-craddockscleaningcom-staging.kinsta.cloud/" target="_blank" rel="noopener">👁 View on Staging →</a>
         </div>
       </div>
-    </div>
 
-    <!-- About Us -->
-    <div class="page-card">
-      <div class="page-card-icon">👤</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">About Us</span>
-          <span class="badge badge-review">For Review</span>
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">👤</span>
+          <div>
+            <div class="pc-type">Core Page</div>
+            <div class="pc-name">About Us</div>
+          </div>
         </div>
-        <div class="page-card-url">craddockscleaningservices.com/about-us/</div>
-        <div class="page-card-desc">Company story, founding year, Meet Jeremy section, CleanProof protocol summary, beliefs, locations, testimonials.</div>
-        <div class="page-card-actions">
+        <p class="pc-desc">Company story, Meet Jeremy, CleanProof summary, locations, testimonials.</p>
+        <div class="pc-action">
           <a class="btn-review" href="https://stg-craddockscleaningcom-staging.kinsta.cloud/about-us/" target="_blank" rel="noopener">👁 View on Staging →</a>
         </div>
       </div>
-    </div>
 
-    <!-- CleanProof System -->
-    <div class="page-card">
-      <div class="page-card-icon">🛡️</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">CleanProof System</span>
-          <span class="badge badge-review">For Review</span>
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">🛡️</span>
+          <div>
+            <div class="pc-type">Core Page</div>
+            <div class="pc-name">CleanProof System</div>
+          </div>
         </div>
-        <div class="page-card-url">craddockscleaningservices.com/quality-system/</div>
-        <div class="page-card-desc">Full documentation of the 5-Step Accountability Protocol, ATP testing, digital log delivery, and compliance standards.</div>
-        <div class="page-card-actions">
+        <p class="pc-desc">5-Step Accountability Protocol, ATP testing, digital logs, compliance.</p>
+        <div class="pc-action">
           <a class="btn-review" href="https://stg-craddockscleaningcom-staging.kinsta.cloud/quality-system/" target="_blank" rel="noopener">👁 View on Staging →</a>
         </div>
       </div>
-    </div>
 
-    <!-- Contact -->
-    <div class="page-card">
-      <div class="page-card-icon">📞</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Contact / Get a Quote</span>
-          <span class="badge badge-wip">In Progress</span>
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">📍</span>
+          <div>
+            <div class="pc-type">Location Page</div>
+            <div class="pc-name">Lancaster TX (HQ)</div>
+          </div>
         </div>
-        <div class="page-card-url">craddockscleaningservices.com/contact-us/</div>
-        <div class="page-card-desc">Quote request form, phone, locations map, response time guarantee.</div>
-        <div class="page-card-actions">
-          <span class="btn-disabled">🔒 Not ready yet</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- LOCATION PAGES -->
-  <p class="section-label">Location Pages</p>
-  <h2 class="section-title">Service Area Pages</h2>
-  <p class="section-sub">Geo-targeted pages for each service area</p>
-
-  <div class="pages-grid">
-
-    <!-- Lancaster -->
-    <div class="page-card">
-      <div class="page-card-icon">📍</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Lancaster TX (HQ)</span>
-          <span class="badge badge-review">For Review</span>
-        </div>
-        <div class="page-card-url">craddockscleaningservices.com/locations/lancaster/</div>
-        <div class="page-card-desc">Location page for Lancaster TX headquarters. Service area, facility types, before/after projects, local testimonials.</div>
-        <div class="page-card-actions">
+        <p class="pc-desc">HQ service area — facility types, before/after projects, local testimonials.</p>
+        <div class="pc-action">
           <a class="btn-review" href="https://stg-craddockscleaningcom-staging.kinsta.cloud/locations/lancaster/" target="_blank" rel="noopener">👁 View on Staging →</a>
         </div>
       </div>
-    </div>
 
-    <!-- Arlington -->
-    <div class="page-card">
-      <div class="page-card-icon">📍</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Arlington TX</span>
-          <span class="badge badge-review">For Review</span>
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">📍</span>
+          <div>
+            <div class="pc-type">Location Page</div>
+            <div class="pc-name">Arlington TX</div>
+          </div>
         </div>
-        <div class="page-card-url">craddockscleaningservices.com/locations/arlington/</div>
-        <div class="page-card-desc">Location page for Arlington TX office. Corporate campuses, medical, entertainment venues, before/after projects.</div>
-        <div class="page-card-actions">
+        <p class="pc-desc">Corporate, medical, entertainment venues — before/after, local testimonials.</p>
+        <div class="pc-action">
           <a class="btn-review" href="https://stg-craddockscleaningcom-staging.kinsta.cloud/locations/arlington/" target="_blank" rel="noopener">👁 View on Staging →</a>
         </div>
       </div>
-    </div>
 
-    <!-- Dallas -->
-    <div class="page-card">
-      <div class="page-card-icon">📍</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Dallas TX</span>
-          <span class="badge badge-wip">In Progress</span>
+      <div class="page-card">
+        <div class="pc-top">
+          <span class="pc-icon">🧹</span>
+          <div>
+            <div class="pc-type">Service Page</div>
+            <div class="pc-name">Janitorial Services</div>
+          </div>
         </div>
-        <div class="page-card-url">craddockscleaningservices.com/locations/dallas/</div>
-        <div class="page-card-desc">Location page for Dallas TX service area coverage.</div>
-        <div class="page-card-actions">
-          <span class="btn-disabled">🔒 Not ready yet</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Fort Worth -->
-    <div class="page-card">
-      <div class="page-card-icon">📍</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Fort Worth TX</span>
-          <span class="badge badge-wip">In Progress</span>
-        </div>
-        <div class="page-card-url">craddockscleaningservices.com/locations/fort-worth/</div>
-        <div class="page-card-desc">Location page for Fort Worth TX service area coverage.</div>
-        <div class="page-card-actions">
-          <span class="btn-disabled">🔒 Not ready yet</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- SERVICE PAGES -->
-  <p class="section-label">Service Pages</p>
-  <h2 class="section-title">Individual Service Pages</h2>
-  <p class="section-sub">Dedicated pages for each cleaning service</p>
-
-  <div class="pages-grid">
-
-    <div class="page-card">
-      <div class="page-card-icon">🧹</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Commercial Janitorial Services</span>
-          <span class="badge badge-review">For Review</span>
-        </div>
-        <div class="page-card-url">craddockscleaningservices.com/services/janitorial-cleaning-services/</div>
-        <div class="page-card-desc">Main janitorial service page. Scheduled cleaning, assigned crew, supervisor verification, digital log.</div>
-        <div class="page-card-actions">
+        <p class="pc-desc">Scheduled cleaning, assigned crew, supervisor verification, digital log.</p>
+        <div class="pc-action">
           <a class="btn-review" href="https://stg-craddockscleaningcom-staging.kinsta.cloud/janitorial-cleaning-services/" target="_blank" rel="noopener">👁 View on Staging →</a>
         </div>
       </div>
-    </div>
 
-    <div class="page-card">
-      <div class="page-card-icon">🏥</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Medical Equipment Cleaning</span>
-          <span class="badge badge-wip">In Progress</span>
-        </div>
-        <div class="page-card-url">craddockscleaningservices.com/services/medical-equipment-cleaning/</div>
-        <div class="page-card-desc">ATP-tested surface cleaning of patient care equipment. Joint Commission EOC compliant documentation.</div>
-        <div class="page-card-actions">
-          <span class="btn-disabled">🔒 Not ready yet</span>
-        </div>
-      </div>
     </div>
-
-    <div class="page-card">
-      <div class="page-card-icon">🏗️</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Post-Construction Cleaning</span>
-          <span class="badge badge-wip">In Progress</span>
-        </div>
-        <div class="page-card-url">craddockscleaningservices.com/services/construction-cleaning-services/</div>
-        <div class="page-card-desc">Final-phase cleaning for construction projects. CO-ready delivery, debris removal, window detailing.</div>
-        <div class="page-card-actions">
-          <span class="btn-disabled">🔒 Not ready yet</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="page-card">
-      <div class="page-card-icon">✨</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Floor Care Services</span>
-          <span class="badge badge-wip">Queued</span>
-        </div>
-        <div class="page-card-url">craddockscleaningservices.com/services/floor-care/</div>
-        <div class="page-card-desc">VCT strip &amp; wax, carpet extraction, hard floor maintenance.</div>
-        <div class="page-card-actions">
-          <span class="btn-disabled">🔒 Not ready yet</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="page-card">
-      <div class="page-card-icon">🌅</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Day Porter Services</span>
-          <span class="badge badge-wip">Queued</span>
-        </div>
-        <div class="page-card-url">craddockscleaningservices.com/services/day-porter/</div>
-        <div class="page-card-desc">On-site daytime cleaning attendant for lobbies, restrooms, common areas.</div>
-        <div class="page-card-actions">
-          <span class="btn-disabled">🔒 Not ready yet</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-  <div class="divider"></div>
-
-  <!-- INDUSTRY PAGES -->
-  <p class="section-label">Industry Pages</p>
-  <h2 class="section-title">Facility Type Pages</h2>
-  <p class="section-sub">Vertical-specific landing pages targeting facility managers by industry</p>
-
-  <div class="pages-grid">
-
-    <div class="page-card">
-      <div class="page-card-icon">🏢</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Office Cleaning</span>
-          <span class="badge badge-wip">Queued</span>
-        </div>
-        <div class="page-card-url">craddockscleaningservices.com/industries/office/</div>
-        <div class="page-card-desc">Corporate office and business park cleaning. Assigned crews, digital log delivery.</div>
-        <div class="page-card-actions">
-          <span class="btn-disabled">🔒 Not ready yet</span>
-        </div>
+  <!-- ── COL 4: LIVE ───────────────────────────────────── -->
+  <div class="col">
+    <div class="col-head col-head-live">
+      <div class="col-title-row">
+        <span class="col-title col-title-live">Live</span>
+        <span class="col-count col-count-live">0</span>
       </div>
+      <p class="col-desc col-desc-live">Published to craddockscleaningservices.com.</p>
     </div>
-
-    <div class="page-card">
-      <div class="page-card-icon">🏥</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Medical Facility Cleaning</span>
-          <span class="badge badge-wip">Queued</span>
-        </div>
-        <div class="page-card-url">craddockscleaningservices.com/industries/medical-facility/</div>
-        <div class="page-card-desc">Outpatient clinics, hospitals, ASCs. Joint Commission EOC documentation, EPA-registered products.</div>
-        <div class="page-card-actions">
-          <span class="btn-disabled">🔒 Not ready yet</span>
-        </div>
-      </div>
+    <div class="col-body col-body-live">
+      <div class="col-empty">🚀 Pages will appear here once approved and published.</div>
     </div>
-
-    <div class="page-card">
-      <div class="page-card-icon">📦</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">Distribution &amp; Warehouse</span>
-          <span class="badge badge-wip">Queued</span>
-        </div>
-        <div class="page-card-url">craddockscleaningservices.com/industries/distribution-warehouse/</div>
-        <div class="page-card-desc">OSHA-compliant warehouse cleaning. Concrete degreasing, dock areas, overnight delivery.</div>
-        <div class="page-card-actions">
-          <span class="btn-disabled">🔒 Not ready yet</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="page-card">
-      <div class="page-card-icon">🎓</div>
-      <div class="page-card-body">
-        <div class="page-card-top">
-          <span class="page-card-title">School &amp; Campus Cleaning</span>
-          <span class="badge badge-wip">Queued</span>
-        </div>
-        <div class="page-card-url">craddockscleaningservices.com/industries/school-campus/</div>
-        <div class="page-card-desc">K-12 schools, charter schools, universities. Deep clean scheduling around academic calendar.</div>
-        <div class="page-card-actions">
-          <span class="btn-disabled">🔒 Not ready yet</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-</div><!-- /section -->
+</div><!-- /board -->
+</div><!-- /board-wrap -->
 
 <!-- FOOTER -->
 <footer class="portal-footer">
-  <p>Built and managed by <a href="https://leadpillar.com" target="_blank" rel="noopener">LeadPillar</a> · Questions? Contact <a href="mailto:soren@leadpillar.com">soren@leadpillar.com</a></p>
-  <p style="margin-top:6px;font-size:11px;opacity:.6">For review only — staging links only. No content is live until explicitly marked.</p>
+  <p>Built and managed by <a href="https://leadpillar.com" target="_blank" rel="noopener">LeadPillar</a> · Questions? <a href="mailto:soren@leadpillar.com">soren@leadpillar.com</a></p>
+  <p style="margin-top:5px;font-size:11px;opacity:.55">Staging links only — no content is live until explicitly marked.</p>
 </footer>
 
 </body>
